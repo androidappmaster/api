@@ -3,6 +3,7 @@ var server = express();
 
 // For parameters 
 server.use(express.urlencoded());
+server.use(express.bodyParser());
 
 // Global variable
 var students = [];
@@ -20,6 +21,7 @@ for ( i = 0 ; i < 50 ; i++ ) {
 server.post("/students", function(req,res) {
 
 	console.log("Adding student");
+	console.log("Uploading " + req.files.image.originalFilename);
 
 	// Parameters
 	var name = req.body.name
