@@ -21,7 +21,8 @@ for ( i = 0 ; i < 50 ; i++ ) {
 server.post("/students", function(req,res) {
 
 	console.log("Adding student");
-	console.log("Uploading " + req.files.image.originalFilename);
+	if ( req.files )
+		console.log("Uploading " + req.files.image.originalFilename);
 
 	// Parameters
 	var name = req.body.name
